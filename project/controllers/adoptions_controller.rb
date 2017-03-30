@@ -3,6 +3,7 @@ require('sinatra/contrib/all')
 require_relative('../models/adoption.rb')
 require_relative('../models/owner.rb')
 require_relative('../models/animal.rb')
+require ('pry-byebug')
 
 get '/adoptions' do
   @adoptions = Adoption.all
@@ -16,7 +17,9 @@ get '/adoptions/new' do
 end
 
 post '/adoptions' do
-  @adoptions = Adoption.new(params)
+  @adoption = Adoption.new(params)
+  @adoption.save
+  @adoptions = Adoption.all
   erb (:"adoptions/index")
 end
 

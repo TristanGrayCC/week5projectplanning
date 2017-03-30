@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require ('pry-byebug')
 
 class Adoption
 
@@ -10,7 +11,7 @@ class Adoption
     @owner_id = options['owner_id'].to_i
   end
 
-  def new()
+  def save()
     sql = "INSERT INTO adoptions (animal_id, owner_id) VALUES (#{@animal_id},#{@owner_id}) RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
