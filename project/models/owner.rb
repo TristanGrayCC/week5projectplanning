@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Owner
 
-  attr_reader :name, :id
+  attr_reader :name, :id, :species_pref
 
   def initialize( options )
     @id = nil || options['id'].to_i
