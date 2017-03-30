@@ -8,11 +8,10 @@ class Adoption
     @id = nil || options['id'].to_i
     @animal_id = options['animal_id'].to_i
     @owner_id = options['owner_id'].to_i
-    @review = options['review']
   end
 
-  def save()
-    sql = "INSERT INTO adoptions (animal_id, owner_id, review) VALUES (#{@animal_id},#{@owner_id}, '#{@review}') RETURNING *"
+  def new()
+    sql = "INSERT INTO adoptions (animal_id, owner_id) VALUES (#{@animal_id},#{@owner_id}) RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
   end
@@ -31,6 +30,18 @@ class Adoption
   def self.delete(id)
     sql = "DELETE FROM adoptions where id = #{id}"
     SqlRunner.run(sql)
+  end
+
+  def owner
+    sql = "SELECT * FROM owners o INNER JOIN adoptions a ON a.owner_id = o.id WHERE o.id = #{@owner_id}"
+    results = SqlRunner.run(sql)
+    return Owner.new(results.first)
+  end
+
+  def animal
+    sql = "SELECT * FROM animals INNER JOIN adoptions ON adoptions.animal_id = animals.id WHERE animals.id = #{@animal_id}"
+    results = SqlRunner.run(sql)
+    return Animal.new(results.first)
   end
 
 end

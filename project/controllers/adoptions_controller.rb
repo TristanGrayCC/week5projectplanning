@@ -9,7 +9,18 @@ get '/adoptions' do
   erb (:"adoptions/index")
 end
 
+get '/adoptions/new' do
+  @owners = Owner.all
+  @animals = Animal.all
+  erb (:"adoptions/new")
+end
+
+post '/adoptions' do
+  @adoptions = Adoption.new(params)
+  erb (:"adoptions/index")
+end
+
 post '/adoptions/:id/delete' do
-  Biting.destroy(params[:id])
+  Adoption.delete(params[:id])
   redirect to("/adoptions")
 end
