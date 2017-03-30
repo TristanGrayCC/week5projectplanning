@@ -15,7 +15,7 @@ class Animal
   end
 
   def save()
-    sql = "INSERT INTO animals (name, species, breed, admission_date, ready_to_adopt, honour_level) VALUES ('#{@name}','#{@species}','#{@breed}','#{@admission_date}',#{@ready_to_adopt},#{@honour_level}) RETURNING *"
+    sql = "INSERT INTO animals (name, species, breed, admission_date, ready_to_adopt, honour_level) VALUES ('#{@name}','#{@species}','#{@breed}','#{@admission_date}','#{@ready_to_adopt}',#{@honour_level}) RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
   end

@@ -3,11 +3,11 @@ require_relative( '../models/owner.rb' )
 require_relative( '../models/adoption.rb' )
 require('pry-byebug')
 
+Adoption.delete_all
 Animal.delete_all
 Owner.delete_all
-Adoption.delete_all
 
-animal1 = Animal.new({'profile' => "TBC", 'name' => "Jeremy",'species' => "Griffon", 'breed' => "Silverback", 'admission_date' => 27/04/1408, 'ready_to_adopt' => TRUE, 'honour_level' => 7})
+animal1 = Animal.new({'profile' => "TBC", 'name' => "Jeremy",'species' => "Griffon", 'breed' => "Silverback", 'admission_date' => "1408-04-27", 'ready_to_adopt' => "TRUE", 'honour_level' => 7})
 
 animal1.save
 

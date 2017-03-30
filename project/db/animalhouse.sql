@@ -27,7 +27,7 @@ CREATE TABLE owners
 CREATE TABLE adoptions
 (
   id SERIAL8 PRIMARY KEY,
-  owner_id INT8 REFERENCES owners(id),
-  animal_id INT8 REFERENCES animals(id),
+  owner_id INT8 REFERENCES owners(id) ON DELETE CASCADE,
+  animal_id INT8 REFERENCES animals(id) ON DELETE CASCADE,
   review TEXT
 );
