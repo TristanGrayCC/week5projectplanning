@@ -6,12 +6,15 @@
       <th align="left">Knight</th>
       <th align="left">Preference</th>
       <th align="left">Honour</th>
+      <th align="left">Kill Off</th>
     </tr>
     <% for owner in @owners %>
     <tr>
       <td><%= owner.name %></td>
       <td><%= owner.species_pref %></td>
       <td><%= owner.honour_level %></td>
+      <td><form action="/owners/<%= owner.id %>/delete" method="POST">
+          <input type="submit" value="delete"/></td>
     </tr>
     <% end %>
   </table>

@@ -39,6 +39,11 @@ class Animal
     SqlRunner.run(sql)
   end
 
+  def self.delete(id)
+    sql = "DELETE FROM animals WHERE id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def self.adoptees
     sql = "SELECT * FROM animals WHERE adopted='f'"
     results = SqlRunner.run(sql)

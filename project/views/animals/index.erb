@@ -6,6 +6,7 @@
       <th align="left">Mount</th>
       <th align="left">Admitted</th>
       <th align="left">Available</th>
+      <th align="left">Delete</th>
     </tr>
     <% for animal in Animal.adoptees %>
     <tr>
@@ -14,6 +15,8 @@
       time=times.strftime("%d, %B, %Y") %>
       <%= time %></td>
       <td><%= "Yes" if animal.ready_to_adopt == "t" %> <%= "No" if animal.ready_to_adopt == "f" %></td>
+      <td><form action="/animals/<%= animal.id %>/delete" method="POST">
+          <input type="submit" value="delete"/></td>
     </tr>
     <% end %>
   </table>
