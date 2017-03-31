@@ -3,5 +3,6 @@
 <% for animal in @animals %>
   <p><%= animal.name %> the <%= animal.species %></p>
   <p>Admitted <%= animal.admission_date %></p>
-  <p>Available for adoption: <%= animal.ready_to_adopt %></p>
+  <p>Available for adoption:
+  <%= "True" if animal.ready_to_adopt == "t" %> <%= "False" if animal.ready_to_adopt == "f" %></p>
 <% end %>
