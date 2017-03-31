@@ -4,7 +4,7 @@
   <p><%= adoption.animal.name %> the <%= adoption.animal.species %> </p>
   <p>adopted by:</p>
   <p><%= adoption.owner.name %></p>
-  <form action="/adopion/<%= adoption.id %>/delete" method="POST">
+  <form action="/adoptions/<%= adoption.id %>/delete" method="POST">
       <input type="submit" value="delete"/>
   </form>
 <% end %>

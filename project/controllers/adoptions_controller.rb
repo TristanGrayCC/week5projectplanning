@@ -25,5 +25,5 @@ end
 
 post '/adoptions/:id/delete' do
   Adoption.delete(params[:id])
-  redirect to("/adoptions")
+  redirect to '/adoptions'
 end

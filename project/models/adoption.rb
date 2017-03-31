@@ -15,12 +15,6 @@ class Adoption
     sql = "INSERT INTO adoptions (animal_id, owner_id) VALUES (#{@animal_id},#{@owner_id}) RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
-  end
-
-  def save()
-    sql = "INSERT INTO adoptions (animal_id, owner_id) VALUES (#{@animal_id},#{@owner_id}) RETURNING *"
-    results = SqlRunner.run(sql)
-    @id = results.first()['id'].to_i
     sql = "UPDATE animals SET adopted = 'TRUE' WHERE id = #{@id};"
     SqlRunner.run(sql)
   end
@@ -31,13 +25,23 @@ class Adoption
     return results.map {|adoption|Adoption.new(adoption)}
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM adoptions WHERE id = #{id}"
+    results = SqlRunner.run(sql)
+    return results.map {|adoption|Adoption.new(adoption)}
+  end
+
   def self.delete_all
+    sql = "UPDATE animals SET adopted = 'FALSE';"
+    SqlRunner.run(sql)
     sql = "DELETE FROM adoptions"
     SqlRunner.run(sql)
   end
 
   def self.delete(id)
-    sql = "DELETE FROM adoptions where id = #{id}"
+    sql = "UPDATE animals SET adopted = 'FALSE' WHERE animals.id = #{id}"
+    SqlRunner.run(sql)
+    sql = "DELETE FROM adoptions WHERE id = #{id}"
     SqlRunner.run(sql)
   end
 
