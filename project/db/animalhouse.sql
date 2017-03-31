@@ -11,7 +11,8 @@ CREATE TABLE animals
   breed VARCHAR(255),
   admission_date DATE,
   ready_to_adopt BOOLEAN,
-  honour_level INT2
+  honour_level INT2,
+  adopted BOOLEAN
 );
 
 CREATE TABLE owners
@@ -21,7 +22,8 @@ CREATE TABLE owners
   profile TEXT,
   address VARCHAR(255),
   species_pref VARCHAR(255),
-  honour_level INT2
+  honour_level INT2,
+  is_dead BOOLEAN
 );
 
 CREATE TABLE adoptions

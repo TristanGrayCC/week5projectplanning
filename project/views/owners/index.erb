@@ -1,6 +1,18 @@
 <h1>Owners</h1>
 
-<% for owner in @owners %>
-  <p><%= owner.name %></p>
-  <p><%= owner.species_pref %></p>
-<% end %>
+<div style = "margin-left: 20px">
+  <table style="width:50%">
+    <tr>
+      <th align="left">Knight</th>
+      <th align="left">Preference</th>
+      <th align="left">Honour</th>
+    </tr>
+    <% for owner in @owners %>
+    <tr>
+      <td><%= owner.name %></td>
+      <td><%= owner.species_pref %></td>
+      <td><%= owner.honour_level %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>

@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require ('pry-byebug')
 
 class Animal
 
@@ -12,10 +13,11 @@ class Animal
     @admission_date = options['admission_date']
     @ready_to_adopt = options['ready_to_adopt']
     @honour_level = options['honour_level']
+    @adopted = options['adopted']
   end
 
   def save()
-    sql = "INSERT INTO animals (name, species, breed, admission_date, ready_to_adopt, honour_level) VALUES ('#{@name}','#{@species}','#{@breed}','#{@admission_date}','#{@ready_to_adopt}',#{@honour_level}) RETURNING *"
+    sql = "INSERT INTO animals (name, species, breed, admission_date, ready_to_adopt, honour_level, adopted) VALUES ('#{@name}','#{@species}','#{@breed}','#{@admission_date}','#{@ready_to_adopt}',#{@honour_level},'#{@adopted}') RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
   end
@@ -37,4 +39,9 @@ class Animal
     SqlRunner.run(sql)
   end
 
+  def self.adoptees
+    sql = "SELECT * FROM animals WHERE adopted='f'"
+    results = SqlRunner.run(sql)
+    return results.map {|animal|Animal.new(animal)}
+  end
 end

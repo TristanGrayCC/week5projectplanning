@@ -2,7 +2,7 @@ require_relative('../db/sql_runner')
 
 class Owner
 
-  attr_reader :name, :id, :species_pref
+  attr_reader :name, :id, :species_pref, :honour_level
 
   def initialize( options )
     @id = nil || options['id'].to_i
@@ -11,10 +11,11 @@ class Owner
     @address = options['address']
     @species_pref = options['species_pref']
     @honour_level = options['honour_level']
+    @is_dead = options['is_dead']
   end
 
   def save()
-    sql = "INSERT INTO owners (name, profile, address, species_pref, honour_level) VALUES ('#{@name}','#{@profile}','#{@address}','#{@species_pref}',#{@honour_level}) RETURNING *"
+    sql = "INSERT INTO owners (name, profile, address, species_pref, honour_level, is_dead) VALUES ('#{@name}','#{@profile}','#{@address}','#{@species_pref}',#{@honour_level},'#{@is_dead}') RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
   end

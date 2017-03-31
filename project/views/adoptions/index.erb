@@ -1,7 +1,7 @@
 <h1>Adoptions</h1>
 
 <% for adoption in @adoptions %>
-  <p><%= adoption.animal.name %></p>
+  <p><%= adoption.animal.name %> the <%= adoption.animal.species %> </p>
   <p>adopted by:</p>
   <p><%= adoption.owner.name %></p>
   <form action="/adopion/<%= adoption.id %>/delete" method="POST">

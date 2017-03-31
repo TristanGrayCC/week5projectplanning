@@ -1,8 +1,20 @@
-<h1>Animals</h1>
+<h1>Mounts</h1>
 
-<% for animal in @animals %>
-  <p><%= animal.name %> the <%= animal.species %></p>
-  <p>Admitted <%= animal.admission_date %></p>
-  <p>Available for adoption:
-  <%= "True" if animal.ready_to_adopt == "t" %> <%= "False" if animal.ready_to_adopt == "f" %></p>
-<% end %>
+<div style = "margin-left: 20px">
+  <table style="width:50%">
+    <tr>
+      <th align="left">Mount</th>
+      <th align="left">Admitted</th>
+      <th align="left">Available</th>
+    </tr>
+    <% for animal in Animal.adoptees %>
+    <tr>
+      <td><%= animal.name %> the <%= animal.species %></td>
+      <td><% times =Date.parse(animal.admission_date)
+      time=times.strftime("%d, %B, %Y") %>
+      <%= time %></td>
+      <td><%= "Yes" if animal.ready_to_adopt == "t" %> <%= "No" if animal.ready_to_adopt == "f" %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
