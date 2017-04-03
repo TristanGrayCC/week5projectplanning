@@ -1,0 +1,39 @@
+<form method="post" action="/owners">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name ="name"/>
+  <br/>
+
+  <label for="profile">Profile:</label>
+  <input id="profile" type="text" name ="profile"/>
+  <br/>
+
+  <label for="address">Address:</label>
+  <input id="address" type="text" name ="address"/>
+  <br/>
+
+  <label for="species_pref">Species Preference:</label>
+  <select id="species_pref" name ="species_pref"/>
+    <option value="Griffin">Griffin</option>
+    <option value="Pegasus">Pegasus</option>
+    <option value="Hippogriff">Hippogriff</option>
+    <option value="Drake">Drake</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Wyrm">Wyrm</option>
+    <option value="Giant Spider">Giant Spider</option>
+    <option value="Giant Corgi">Giant Corgi</option>
+    <option value="Snow Leopard">Snow Leopard</option>
+    <option value="Irish Elk">Irish Elk</option>
+  </select>
+  <br/>
+
+  <label for="honour_level">Honour Level:</label>
+  <input id="honour_level" type="number" name ="honour_level"/>
+  <br/>
+
+  <label for="is_dead">Are They Dead Yet?:</label>
+  <input id="is_dead" type="boolean" name ="is_dead" value="FALSE"/>
+  <br/>
+
+  <input type="submit" value ="Add Knight!"/>
+</form>

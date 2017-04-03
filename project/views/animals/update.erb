@@ -5,7 +5,18 @@
   <br/>
 
   <label for="species">Species:</label>
-  <input id="species" type="text" name ="species" value ="<%=@animal.species%>"/>
+  <select id="species" name ="species" value ="<%=@animal.species%>"/>
+    <option value="Griffin"<%="selected" if @animal.species == "Griffin"%>>Griffin</option>
+    <option value="Pegasus"<%="selected" if @animal.species == "Pegasus"%>>Pegasus</option>
+    <option value="Hippogriff"<%="selected" if @animal.species == "Hippogriff"%>>Hippogriff</option>
+    <option value="Drake"<%="selected" if @animal.species == "Drake"%>>Drake</option>
+    <option value="Dragon"<%="selected" if @animal.species == "Dragon"%>>Dragon</option>
+    <option value="Wyrm"<%="selected" if @animal.species == "Wyrm"%>>Wyrm</option>
+    <option value="Giant Spider"<%="selected" if @animal.species == "Giant Spider"%>>Giant Spider</option>
+    <option value="Giant Corgi"<%="selected" if @animal.species == "Giant Corgi"%>>Giant Corgi</option>
+    <option value="Snow Leopard"<%="selected" if @animal.species == "Snow Leopard"%>>Snow Leopard</option>
+    <option value="Irish Elk"<%="selected" if @animal.species == "Irish Elk"%>>Irish Elk</option>
+  </select>
   <br/>
 
   <label for="breed">Breed:</label>

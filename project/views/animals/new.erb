@@ -1,0 +1,43 @@
+<form method="post" action="/animals">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name ="name"/>
+  <br/>
+
+  <label for="species">Species:</label>
+  <select id="species" name ="species"/>
+    <option value="Griffin">Griffin</option>
+    <option value="Pegasus">Pegasus</option>
+    <option value="Hippogriff">Hippogriff</option>
+    <option value="Drake">Drake</option>
+    <option value="Dragon">Dragon</option>
+    <option value="Wyrm">Wyrm</option>
+    <option value="Giant Spider">Giant Spider</option>
+    <option value="Giant Corgi">Giant Corgi</option>
+    <option value="Snow Leopard">Snow Leopard</option>
+    <option value="Irish Elk">Irish Elk</option>
+  </select>
+  <br/>
+
+  <label for="breed">Breed:</label>
+  <input id="breed" type="text" name ="breed"/>
+  <br/>
+
+  <label for="ready_to_adopt">Ready to Adopt:</label>
+  <input id="ready_to_adopt" type="boolean" name ="ready_to_adopt"/>
+  <br/>
+
+  <label for="admission_date">Admission Date:</label>
+  <input id="admission_date" type="date" name ="admission_date" value = "DATE::"/>
+  <br/>
+
+  <label for="honour_level">Honour Level:</label>
+  <input id="honour_level" type="number" name ="honour_level"/>
+  <br/>
+
+  <label for="adopted">Adopted:</label>
+  <input id="adopted" type="boolean" name ="adopted" value="FALSE"/>
+  <br/>
+
+  <input type="submit" value ="Order animal"/>
+</form>

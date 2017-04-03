@@ -64,4 +64,16 @@ class Animal
     SqlRunner.run( sql )
   end
 
+  ### Steed List
+  # Griffin
+  # Pegasus
+  # Hippogriff
+  # Drake
+  # Dragon
+  # Wyrm
+  # Giant Spider
+  # Giant Corgi
+  # Snow Leopard
+  # Irish Elk
+
 end
