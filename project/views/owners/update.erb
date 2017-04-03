@@ -1,0 +1,24 @@
+<form method="post" action="/owners/<%=@owner.id%>/update">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name ="name" value ="<%=@owner.name%>"/>
+  <br/>
+
+  <label for="profile">Profile:</label>
+  <input id="profile" type="text" name ="profile" value ="<%=@owner.profile%>"/>
+  <br/>
+
+  <label for="address">Address:</label>
+  <input id="address" type="text" name ="address" value ="<%=@owner.address%>"/>
+  <br/>
+
+  <label for="species_pref">Species Preference:</label>
+  <input id="species_pref" type="text" name ="species_pref" value ="<%=@owner.species_pref%>"/>
+  <br/>
+
+  <label for="honour_level">Honour Level:</label>
+  <input id="honour_level" type="number" name ="honour_level" value ="<%=@owner.honour_level%>"/>
+  <br/>
+
+  <input type="submit" value ="Update"/>
+</form>

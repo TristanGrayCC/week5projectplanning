@@ -11,3 +11,14 @@ post '/animals/:id/delete' do
   Animal.delete(params[:id])
   redirect to '/animals'
 end
+
+get '/animals/:id/update' do
+  @animal = Animal.find(params[:id])
+  erb (:"animals/update")
+end
+
+post '/animals/:id/update' do
+  @animal = Animal.new(params)
+  @animal.update
+  redirect to '/animals'
+end

@@ -1,0 +1,24 @@
+<form method="post" action="/animals/<%=@animal.id%>/update">
+
+  <label for="name">Name:</label>
+  <input id="name" type="text" name ="name" value ="<%=@animal.name%>"/>
+  <br/>
+
+  <label for="species">Species:</label>
+  <input id="species" type="text" name ="species" value ="<%=@animal.species%>"/>
+  <br/>
+
+  <label for="breed">Breed:</label>
+  <input id="breed" type="text" name ="breed" value ="<%=@animal.breed%>"/>
+  <br/>
+
+  <label for="ready_to_adopt">Ready to Adopt:</label>
+  <input id="ready_to_adopt" type="text" name ="ready_to_adopt" value ="<%=@animal.ready_to_adopt%>"/>
+  <br/>
+
+  <label for="honour_level">Honour Level:</label>
+  <input id="honour_level" type="number" name ="honour_level" value ="<%=@animal.honour_level%>"/>
+  <br/>
+
+  <input type="submit" value ="Update"/>
+</form>

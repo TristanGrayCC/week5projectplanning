@@ -3,7 +3,9 @@ require ('pry-byebug')
 
 class Animal
 
-  attr_reader :name, :id, :species, :admission_date, :ready_to_adopt
+  attr_reader :id
+
+  attr_accessor :name, :species, :breed, :admission_date, :ready_to_adopt, :honour_level, :adopted
 
   def initialize( options )
     @id = nil || options['id'].to_i
@@ -49,4 +51,17 @@ class Animal
     results = SqlRunner.run(sql)
     return results.map {|animal|Animal.new(animal)}
   end
+
+  def update()
+    sql = "UPDATE owners SET
+      name = '#{@name}',
+      species = '#{@profile}',
+      breed = '#{@address}',
+      admission_date = '#{@species_pref}',
+      ready_to_adopt = '#{@honour_level}',
+      honour_level = #{@honour_level},
+      WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
 end
