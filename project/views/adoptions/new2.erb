@@ -1,0 +1,31 @@
+<h1>Mount a Steed!</h1>
+
+<form action="/adoptions" method="post">
+  <p>
+  Select an owner:
+  </p>
+  <p>
+    <label>
+      <select name="owner_id">
+        <option value="<%= @owner.id %>">
+        <%= @owner.name %>
+      </select>
+    </label>
+  </p>
+
+  <p>
+    Select a steed:
+  </p>
+  <p>
+    <label>
+      <select name="animal_id">
+        <% for animal in Animal.adoptees do if animal.species == @owner.species_pref %>
+        <option value="<%= animal.id %>"><%= animal.name %></option>
+        <% end %>
+        <% end %>
+      </select>
+    </label>
+  </p>
+
+  <input type='submit' value="Ride It!">
+</form>

@@ -16,6 +16,12 @@ get '/adoptions/new' do
   erb (:"adoptions/new")
 end
 
+get '/adoptions/new2' do
+  @owner = Owner.find(params['owner_id'])
+  @animals = Animal.all
+  erb (:"adoptions/new2")
+end
+
 post '/adoptions' do
   @adoption = Adoption.new(params)
   @adoption.save

@@ -1,6 +1,6 @@
 <h1>Mount a Steed!</h1>
 
-<form action="/adoptions" method="post">
+<form action="/adoptions/new2" method="get">
   <p>
   Select an owner:
   </p>
@@ -14,18 +14,5 @@
     </label>
   </p>
 
-  <p>
-    Select a steed:
-  </p>
-  <p>
-    <label>
-      <select name="animal_id">
-        <% for animal in Animal.adoptees %>
-        <option value="<%= animal.id %>"><%= animal.name %></option>
-        <% end %>
-      </select>
-    </label>
-  </p>
-
-  <input type='submit' value="Ride It!">
+  <input type='submit' value="Next!">
 </form>

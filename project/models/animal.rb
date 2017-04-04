@@ -36,6 +36,12 @@ class Animal
     return Animal.new(results.first)
   end
 
+  def self.find_name( name )
+    sql = "SELECT * FROM animals WHERE name=#{name}"
+    results = SqlRunner.run(sql)
+    return Animal.new(results.first)
+  end
+
   def self.delete_all
     sql = "DELETE FROM animals"
     SqlRunner.run(sql)
@@ -47,7 +53,7 @@ class Animal
   end
 
   def self.adoptees
-    sql = "SELECT * FROM animals WHERE adopted='f'"
+    sql = "SELECT a.* FROM animals a INNER JOIN owners o ON a.species = o.species_pref WHERE a.adopted = 'f'"
     results = SqlRunner.run(sql)
     return results.map {|animal|Animal.new(animal)}
   end
