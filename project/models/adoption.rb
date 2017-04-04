@@ -57,4 +57,14 @@ class Adoption
     return Animal.new(results.first)
   end
 
+  def honour(owner_id, animal_id)
+    @owner = Owner.find(owner_id)
+    @animal = Animal.find(animal_id)
+    if @owner.honour_level < @animal.honour_level
+      return TRUE
+    else
+      return FALSE
+    end
+  end
+
 end

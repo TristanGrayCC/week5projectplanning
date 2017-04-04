@@ -48,6 +48,11 @@ li a:hover {
   background-size: 100%;
 }
 
+.death_background {
+  background: url(../images/death.jpg) no-repeat;
+  background-size: 100%;
+}
+
 p {
    font-family: Helvetica, Verdana, sans-serif;
    margin: 20px;

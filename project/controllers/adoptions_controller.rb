@@ -24,9 +24,14 @@ end
 
 post '/adoptions' do
   @adoption = Adoption.new(params)
-  @adoption.save
-  @adoptions = Adoption.all
-  erb (:"adoptions/index")
+  result = @adoption.honour(params['owner_id'],params['animal_id'])
+  if result == TRUE
+    erb (:death)
+  else
+    @adoption.save
+    @adoptions = Adoption.all
+    erb (:"adoptions/index")
+  end
 end
 
 post '/adoptions/:id/delete' do
