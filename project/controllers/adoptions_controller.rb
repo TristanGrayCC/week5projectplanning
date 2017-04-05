@@ -25,7 +25,7 @@ end
 post '/adoptions' do
   @adoption = Adoption.new(params)
   result = @adoption.honour(params['owner_id'],params['animal_id'])
-  if result == TRUE
+  if result == true
     erb (:death)
   else
     @adoption.save

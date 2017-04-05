@@ -61,9 +61,9 @@ class Adoption
     @owner = Owner.find(owner_id)
     @animal = Animal.find(animal_id)
     if @owner.honour_level < @animal.honour_level
-      return TRUE
+      return true
     else
-      return FALSE
+      return false
     end
   end
 

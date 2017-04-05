@@ -16,7 +16,7 @@ animal6 = Animal.new({'profile' => "TBC", 'name' => "Blow Hard",'species' => "Dr
 animal7 = Animal.new({'profile' => "TBC", 'name' => "Raden",'species' => "Griffin", 'breed' => "Long-Clawed", 'admission_date' => "1422-11-15", 'ready_to_adopt' => "TRUE", 'honour_level' => 9, 'adopted' => "FALSE"})
 animal8 = Animal.new({'profile' => "TBC", 'name' => "Paw",'species' => "Hippogriff", 'breed' => "Long-Clawed", 'admission_date' => "1422-11-15", 'ready_to_adopt' => "TRUE", 'honour_level' => 9, 'adopted' => "FALSE"})
 animal9 = Animal.new({'profile' => "TBC", 'name' => "Inglis",'species' => "Pegasus", 'breed' => "Long-Clawed", 'admission_date' => "1422-11-15", 'ready_to_adopt' => "TRUE", 'honour_level' => 9, 'adopted' => "FALSE"})
-animal10 = Animal.new({'profile' => "TBC", 'name' => "Dravin",'species' => "Pegasus", 'breed' => "Long-Clawed", 'admission_date' => "1422-11-15", 'ready_to_adopt' => "TRUE", 'honour_level' => 9, 'adopted' => "FALSE"})
+animal10 = Animal.new({'profile' => "TBC", 'name' => "Dravin",'species' => "Pegasus", 'breed' => "Long-Clawed", 'admission_date' => "1422-11-15", 'ready_to_adopt' => "TRUE", 'honour_level' => 7, 'adopted' => "FALSE"})
 
 animal1.save
 animal2.save
