@@ -15,7 +15,7 @@ class Adoption
     sql = "INSERT INTO adoptions (animal_id, owner_id) VALUES (#{@animal_id},#{@owner_id}) RETURNING *"
     results = SqlRunner.run(sql)
     @id = results.first()['id'].to_i
-    sql = "UPDATE animals SET adopted = 'TRUE' WHERE id = #{@id};"
+    sql = "UPDATE animals SET adopted = 't' WHERE id = #{@animal_id};"
     SqlRunner.run(sql)
   end
 
@@ -45,6 +45,19 @@ class Adoption
     SqlRunner.run(sql)
   end
 
+  def self.delete_by_owner(id)
+    sql = "
+    UPDATE animals
+      SET adopted = 'FALSE'
+    FROM animals a
+    INNER JOIN adoptions adopt on adopt.animal_id = a.id
+    WHERE adopt.owner_id = #{id}
+    "
+    SqlRunner.run(sql)
+    sql = "DELETE FROM adoptions WHERE owner_id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def owner
     sql = "SELECT * FROM owners o INNER JOIN adoptions a ON a.owner_id = o.id WHERE o.id = #{@owner_id}"
     results = SqlRunner.run(sql)
@@ -52,7 +65,7 @@ class Adoption
   end
 
   def animal
-    sql = "SELECT * FROM animals INNER JOIN adoptions ON adoptions.animal_id = animals.id WHERE animals.id = #{@animal_id}"
+    sql = "SELECT * FROM animals WHERE id = #{@animal_id}"
     results = SqlRunner.run(sql)
     return Animal.new(results.first)
   end

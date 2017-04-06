@@ -23,7 +23,7 @@ class Owner
   end
 
   def self.all()
-    sql = "SELECT * FROM owners"
+    sql = "SELECT * FROM owners WHERE is_dead = 'f'"
     results = SqlRunner.run(sql)
     return results.map {|owner|Owner.new(owner)}
   end
@@ -51,6 +51,13 @@ class Owner
       address = '#{@address}',
       species_pref = '#{@species_pref}',
       honour_level = #{@honour_level}
+      WHERE id = #{@id};"
+    SqlRunner.run( sql )
+  end
+
+  def death()
+    sql = "UPDATE owners SET
+      is_dead = 't'
       WHERE id = #{@id};"
     SqlRunner.run( sql )
   end

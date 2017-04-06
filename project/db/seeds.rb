@@ -40,3 +40,6 @@ owner3.save
 adoption1 = Adoption.new({'owner_id' => owner1.id,'animal_id' => animal1.id})
 
 adoption1.save
+
+binding.pry
+nil

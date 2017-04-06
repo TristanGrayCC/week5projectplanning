@@ -26,11 +26,15 @@ post '/adoptions' do
   @adoption = Adoption.new(params)
   result = @adoption.honour(params['owner_id'],params['animal_id'])
   if result == true
-    erb (:death)
+    @owner = Owner.find(@adoption.owner_id)
+    @animal = Animal.find(@adoption.animal_id)
+    @owner.death
+    Adoption.delete_by_owner(@adoption.owner_id)
+    erb(:"adoptions/death", :layout => :death_layout)
   else
     @adoption.save
     @adoptions = Adoption.all
-    erb (:"adoptions/index")
+    erb(:"adoptions/index")
   end
 end
 

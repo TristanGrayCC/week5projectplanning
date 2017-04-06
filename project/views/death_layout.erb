@@ -1,36 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Steeds</title>
-  <link rel="stylesheet" type="text/css" href="/styles.css">
-  <link rel="shortcut icon" href="../images/header_image.ico"/>
-</head>
-<body>
-    <ul class = "nav">
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/animals">Mounts</a>
-      </li>
-      <li>
-        <a href="/animals/new">Order a new Steed!</a>
-      </li>
-      <li>
-        <a href="/owners">Owners</a>
-      </li>
-      <li>
-        <a href="/owners/new">Add a new Knight!</a>
-      </li>
-      <li>
-        <a href="/adoptions">Adoptions</a>
-      </li>
-      <li>
-        <a href="/adoptions/new">Mount a Steed!</a>
-      </li>
-    </ul>
-  <section id="content">
-  <%= yield %>
-  </section>
-</body>
+  <head>
+    <meta http-equiv="refresh" content="5;url=http://localhost:4567/" >
+    <title>Death</title>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="shortcut icon" href="../images/header_image.ico"/>
+  </head>
+  <body class = death_background>
+    <section class = death_page>
+      </br></br></br>
+      DEATH
+      </br></br>
+      <%= @owner.name %> was eaten
+      <br/>
+      by the <%= @animal.species %>, <%= @animal.name %>.
+      </br></br>
+      He was not worthy
+    <section>
+  </body>
 </html>
