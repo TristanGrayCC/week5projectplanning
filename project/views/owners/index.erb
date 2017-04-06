@@ -7,20 +7,21 @@
     <tr>
       <th align="left">Knight</th>
       <th align="left">Preference</th>
-      <th align="left">Honour</th>
-      <th align="left">Update</th>
-      <th align="left">Kill Off</th>
+      <th align="center">Honour</th>
+      <th align="center">Update</th>
+      <th align="center">Kill Off</th>
     </tr>
     <% for owner in @owners %>
     <tr>
       <td><%= owner.name %></td>
-      <td><%= owner.species_pref %></td>
-      <td><%= owner.honour_level %></td>
-      <td><form action="/owners/<%= owner.id %>/update" method="GET">
+      <td align="left"><%= owner.species_pref %></td>
+      <td align="center"><%= owner.honour_level %></td>
+      <td align="center"><form action="/owners/<%= owner.id %>/update" method="GET">
           <input type="submit" value="update"/></td>
-      <td><form action="/owners/<%= owner.id %>/delete" method="POST">
+      <td align="center"><form action="/owners/<%= owner.id %>/delete" method="POST">
           <input type="submit" value="delete"/></td>
     </tr>
     <% end %>
+    <img src="../images/DVD-Knight.png" style="height:500px;" style="inline" align="right" padding = "20px" margin-right = "20px">
   </table>
 </div>
